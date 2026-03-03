@@ -1,0 +1,228 @@
+/* ===============================
+   CONTACT FORM SECTION
+=================================*/
+
+.contact-form-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* ===============================
+   FORM GRID
+=================================*/
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* ===============================
+   INPUTS + SELECT + TEXTAREA
+=================================*/
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888;
+}
+
+/* focus effect */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #00ff88;
+  box-shadow: 0 0 0 1px #00ff88;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   SELECT DROPDOWN
+=================================*/
+
+.contact-form select {
+  cursor: pointer;
+  appearance: none;
+}
+
+/* ===============================
+   TEXTAREA FULL WIDTH
+=================================*/
+
+.contact-form textarea {
+  grid-column: span 2;
+  min-height: 160px;
+  resize: none;
+}
+
+/* ===============================
+   SUBMIT BUTTON
+=================================*/
+
+.contact-form button {
+  grid-column: span 2;
+
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #00ff88;
+  background: transparent;
+  color: #00ff88;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+/* hover */
+.contact-form button:hover {
+  background: #00ff88;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 255, 136, 0.25);
+}
+
+/* disabled (loading state) */
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+=================================*/
+
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form textarea,
+  .contact-form button {
+    grid-column: span 1;
+  }
+}
+
+/* ===============================
+   SMOOTH APPEAR ANIMATION
+=================================*/
+
+.contact-form-section {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.submit-btn {
+  background: #00ff88;
+  color: #000;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #00cc6a;
+}
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #000;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ===============================
+   CUSTOM SELECT DROPDOWN
+================================ */
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* remove default arrow */
+.service-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
+  padding: 16px;
+  padding-right: 50px;
+
+  background: #0b0b0b;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+/* hover */
+.service-select:hover {
+  border-color: #22c55e;
+}
+
+/* focus glow */
+.service-select:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 15px rgba(34,197,94,0.35);
+}
+
+/* arrow icon */
+.select-arrow {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #22c55e;
+  font-size: 18px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* rotate when focus */
+.select-wrapper:focus-within .select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
