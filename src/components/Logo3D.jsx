@@ -3,15 +3,25 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, Environment, Center, Stars } from "@react-three/drei";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 
+
+
 function ExtrudedLogo() {
-  const data = useLoader(SVGLoader, "/src/assets/webcraft-logo.svg");
+
+  const data = useLoader(SVGLoader, "/webcraft-logo.svg");
+  
+
+  console.log("SVG Loaded:", data); // DEBUG
 
   const shapes = useMemo(() => {
+    if (!data) return [];
+
     const arr = [];
+
     data.paths.forEach((path) => {
       const shapes = SVGLoader.createShapes(path);
       arr.push(...shapes);
     });
+
     return arr;
   }, [data]);
 
@@ -19,7 +29,7 @@ function ExtrudedLogo() {
     <Center>
       <group scale={[0.12, -0.12, 0.12]}>
         {shapes.map((shape, i) => (
-          <mesh key={i} castShadow receiveShadow>
+          <mesh key={i}>
             <extrudeGeometry
               args={[
                 shape,
@@ -32,16 +42,7 @@ function ExtrudedLogo() {
                 },
               ]}
             />
-            <meshPhysicalMaterial
-              color="#e6f7ff"
-              transmission={1}
-              thickness={3}
-              roughness={0}
-              clearcoat={1}
-              clearcoatRoughness={0}
-              emissive="#0077ff"
-              emissiveIntensity={0.6}
-            />
+            <meshStandardMaterial color="#0105ff" />
           </mesh>
         ))}
       </group>
@@ -53,19 +54,23 @@ export default function Logo3D() {
   return (
     <div style={{ height: "50vh", width: "100%" }}>
       <Canvas camera={{ position: [0, 0, 70], fov: 45 }} shadows>
+
         <color attach="background" args={["#000000"]} />
 
+        {/* LIGHTS */}
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 15, 10]} intensity={3} />
         <pointLight position={[-10, -10, -10]} intensity={2} />
+
+        {/* STARS */}
         <Stars
-  radius={250}
-  depth={50}
-  count={900}
-  factor={1.5}
-  saturation={0}
-  fade
-/>
+          radius={250}
+          depth={50}
+          count={900}
+          factor={1.5}
+          saturation={0}
+          fade
+        />
 
         <Suspense fallback={null}>
           <ExtrudedLogo />

@@ -2,8 +2,8 @@ import React from "react";
 import "../App.css";
 
 /* IMAGES */
-import foundationImg1 from "../assets/foundation-img1.jpg";
-import foundationImg2 from "../assets/foundation-img2.jpg";
+import foundationImg1 from "/foundation-img1.jpg";
+import foundationImg2 from "/foundation-img2.jpg";
 
 /* DATA */
 const foundations = [
