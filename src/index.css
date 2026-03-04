@@ -161,6 +161,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 300px;
 }
 
 /* ================= CURSOR ================= */
@@ -1989,9 +1990,10 @@ section {
     margin-top: 40px;
   }
 
-  .logo-3d {
-    width: 280px;
-  }
+ .logo-3d {
+  width: 100%;
+  max-width: 420px;
+}
 
 }
 /* ================= MOBILE NAVBAR ================= */
@@ -2076,6 +2078,100 @@ section {
     font-size: 40px;
     line-height: 1.2;
     text-align: center;
+  }
+
+}
+/* ================= MOBILE HERO SVG FIX ================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+    gap: 40px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 40px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    margin-inline: auto;
+  }
+
+  /* SVG BELOW BUTTON */
+
+  .hero-right {
+    order: 2;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .logo-3d {
+    width: 260px;
+    margin: auto;
+  }
+
+}
+/* ================= MOBILE FOOTER FIX ================= */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .footer-links ul {
+    padding: 0;
+  }
+
+  .follow-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+}
+
+/* ================= HERO MOBILE FIX ================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+    gap: 40px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 38px;
+  }
+
+  .hero-left p {
+    font-size: 15px;
+  }
+
+  .hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-3d {
+    width: 260px;
   }
 
 }
