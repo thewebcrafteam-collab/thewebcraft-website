@@ -665,51 +665,39 @@ section {
   color: #777;
   font-size: 14px;
 }
-
 /* ================= FOLLOW US ================= */
 
 .followus-wrapper {
-  position: relative;
-  width: 240px;
-  padding-top: 10px;
+  text-align: center;
+  padding: 10px 0;
 }
 
-/* HEADER */
 .followus-header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
+  gap: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-/* ICON AREA */
+/* ICONS */
+
 .followus-icons {
-  position: relative;
-  margin-top: 30px;
-
   display: flex;
-  gap: 25px;
+  justify-content: center;
+  gap: 20px;
 
-  opacity: 0;
-  transform: translateY(20px) scale(0.9);
-  transition: all 0.4s ease;
-
-  pointer-events: none;
-}
-
-/* SHOW STATE */
-.followus-icons.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: none;
   pointer-events: auto;
 }
 
-/* SOCIAL CIRCLES */
+/* CIRCLES */
+
 .follow-circle {
-  width: 65px;
-  height: 65px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.4);
 
@@ -717,19 +705,20 @@ section {
   align-items: center;
   justify-content: center;
 
-  color: #aaa;
-  font-weight: 500;
+  font-size: 20px;
+  color: white;
 
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 
-/* EXPAND EFFECT */
-.follow-circle.expand {
-  width: 110px;
-  height: 110px;
-  border-color: #fff;
-  color: #fff;
-  font-size: 20px;
+/* HOVER */
+
+.follow-circle.instagram:hover {
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+}
+
+.follow-circle.linkedin:hover {
+  background: #0a66c2;
 }
 /* ================= BACK TO TOP ================= */
 
@@ -2119,28 +2108,21 @@ section {
   }
 
 }
-/* ================= MOBILE FOOTER FIX ================= */
-
 @media (max-width: 900px) {
 
   .footer-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     gap: 35px;
   }
 
-  .footer-links ul {
-    padding: 0;
-  }
-
-  .follow-icons {
+  .footer-follow {
     display: flex;
     justify-content: center;
-    gap: 15px;
   }
 
 }
-
 /* ================= HERO MOBILE FIX ================= */
 
 @media (max-width: 900px) {
