@@ -52,7 +52,7 @@ function ExtrudedLogo() {
 
 export default function Logo3D() {
   return (
-    <div style={{ height: "50vh", width: "100%" }}>
+    <div className="logo3d-container">
       <Canvas camera={{ position: [0, 0, 70], fov: 45 }} shadows>
 
         <color attach="background" args={["#000000"]} />
