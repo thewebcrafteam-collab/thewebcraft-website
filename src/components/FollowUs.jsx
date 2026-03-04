@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Share2 } from "lucide-react";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
@@ -6,15 +6,30 @@ const FollowUs = () => {
   const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div
-      className="followus-wrapper"
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => {
-        setActive(false);
-        setHovered(null);
-      }}
-    >
+  className="followus-wrapper"
+  onMouseEnter={() => !isMobile && setActive(true)}
+  onMouseLeave={() => {
+    if (!isMobile) {
+      setActive(false);
+      setHovered(null);
+    }
+  }}
+>
       {/* HEADER */}
       <div className="followus-header">
         <span>FOLLOW US</span>
@@ -22,7 +37,7 @@ const FollowUs = () => {
       </div>
 
       {/* ICONS */}
-      <div className={`followus-icons ${active ? "show" : ""}`}>
+      <div className={`followus-icons ${active || isMobile ? "show" : ""}`}>
         <a
   href="https://www.linkedin.com/in/webcraft-agency-b79097376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   target="_blank"
