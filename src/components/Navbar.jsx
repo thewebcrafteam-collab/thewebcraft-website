@@ -1,26 +1,37 @@
-import { NavLink } from "react-router-dom";
-import logo from "../assets/webcraft-logo.png";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const Navbar = () => {
+function Navbar() {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <nav className="navbar">
-      <div className="nav-container">
-        <Link to="/" className="logo">
-          <img src={logo} alt="WebCraft Logo" />
-          <span>WebCraft</span>
-        </Link>
 
-        <div className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/work">Work</NavLink>
-          <NavLink to="/services">Services</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+      <div className="nav-container">
+
+        <div className="logo">WebCraft</div>
+
+        <div
+          className="menu-toggle"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
         </div>
+
+        <div className={`nav-links ${open ? "open" : ""}`}>
+
+          <a href="/">Home</a>
+          <a href="/work">Work</a>
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+
+        </div>
+
       </div>
+
     </nav>
   );
-};
+}
 
 export default Navbar;

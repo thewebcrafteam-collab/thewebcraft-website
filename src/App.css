@@ -30,7 +30,8 @@
 /* ================= 3D LOGO STYLE ================= */
 
 .logo-3d {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   cursor: grab;
   transform-style: preserve-3d;
   transition: box-shadow 0.3s ease, transform 0.1s ease;

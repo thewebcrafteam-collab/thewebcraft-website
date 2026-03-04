@@ -109,20 +109,21 @@ html {
 /* ================= HERO ================= */
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 8%;
-  background:transparent;
+  gap: 60px;
+  flex-wrap: wrap;
+  background: transparent;
 }
 
 /* LEFT SIDE */
 .hero-left {
   flex: 1;
-  max-width: 50%;
+  max-width: 600px;
 }
-
 .hero-left h1 {
   font-size: 72px;
   font-weight: 800;
@@ -157,11 +158,9 @@ html {
 /* RIGHT SIDE (3D AREA) */
 .hero-right {
   flex: 1;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(70px);  /* 👈 moves slightly right */
 }
 
 /* ================= CURSOR ================= */
@@ -1947,4 +1946,70 @@ section {
 /* CONTACT — calm */
 .contact-motion .reveal {
   transition-duration: 0.6s;
+}
+/* ================= MOBILE RESPONSIVE FIX ================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 42px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    margin-inline: auto;
+  }
+
+  .hero-right {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .logo-3d {
+    width: 280px;
+  }
+
+}
+/* ================= MOBILE NAVBAR ================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #0d0d0d;
+
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 0;
+
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
 }
