@@ -2019,7 +2019,6 @@ section {
 
 }
 /* ================= MOBILE HERO FIX ================= */
-
 @media (max-width: 900px) {
 
   .hero {
@@ -2034,11 +2033,10 @@ section {
   }
 
   .hero-right {
-    order: 2;
     width: 100%;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
 }
@@ -2154,6 +2152,26 @@ section {
   .logo3d-container {
     height: 300px;
     margin-top: 20px;
+  }
+
+}
+/* ================= 3D LOGO CONTAINER ================= */
+
+.logo3d-container {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MOBILE FIX */
+
+@media (max-width: 900px) {
+
+  .logo3d-container {
+    height: 280px;
+    margin-top: 40px; /* space below button */
   }
 
 }
